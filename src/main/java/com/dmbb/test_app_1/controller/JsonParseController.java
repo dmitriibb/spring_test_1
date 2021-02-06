@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.*;
 
 @RestController
-@RequestMapping("/json/parse")
+@RequestMapping("/json-parse")
 public class JsonParseController {
 
     @PutMapping("/count-different-fields")
     public Map<String, Integer> countDifferentFields(@RequestBody Map<String, Object> body) {
         Map<String, Set<Object>> res = new HashMap<>();
 
-        processMap(body, res, "ROOT");
+        body.entrySet().forEach(entry -> processObject(entry.getValue(), res, entry.getKey()));
 
         Map<String, Integer> response = new HashMap<>();
         res.entrySet().forEach(entry ->response.put(entry.getKey(), entry.getValue().size()));
@@ -28,7 +28,7 @@ public class JsonParseController {
     public Map<String, Set<Object>> groupDifferentFields(@RequestBody Map<String, Object> body) {
         Map<String, Set<Object>> res = new HashMap<>();
 
-        processMap(body, res, "ROOT");
+        body.entrySet().forEach(entry -> processObject(entry.getValue(), res, entry.getKey()));
 
         return res;
     }
