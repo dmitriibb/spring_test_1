@@ -56,6 +56,7 @@ public class RestService {
             RequestCallable callable = new RequestCallable(restTemplate, proxyRequest, i);
             list.add(callable);
         }
+        String a = " aaaaa";
         return list;
     }
 
