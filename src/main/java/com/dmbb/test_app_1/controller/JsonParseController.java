@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.*;
 
 @RestController
-@RequestMapping("/json-parse")
+@RequestMapping("/json-parseeee")
 public class JsonParseController {
 
     @PutMapping("/count-different-fieldsssss")
@@ -26,7 +26,7 @@ public class JsonParseController {
 
     @PutMapping("/group-different-fields")
     public Map<String, Set<Object>> groupDifferentFields(@RequestBody Map<String, Object> body) {
-        Map<String, Set<Object>> res = new HashMap<>();
+        Map<String, Set<Object>> res = new TreeMap<>();
 
         body.entrySet().forEach(entry -> processObject(entry.getValue(), res, entry.getKey()));
 
@@ -45,7 +45,7 @@ public class JsonParseController {
             list.forEach(obj -> processObject(obj, res, fieldName));
         } else {
             Set<Object> set = res.get(fieldName);
-            if (set == null) {
+            if (set != null) {
                 set = new HashSet<>();
                 res.put(fieldName, set);
             }
