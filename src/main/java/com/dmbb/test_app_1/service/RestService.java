@@ -25,7 +25,7 @@ public class RestService {
 
     public ExecutorService executorCached = Executors.newCachedThreadPool();
 
-    public ExecutorService executor = Executors.newFixedThreadPool(10);
+    public ExecutorService executor = Executors.newFixedThreadPool(15);
 
     public List<String> sendHttpRequest(ProxyRequest proxyRequest) throws InterruptedException, ExecutionException {
 
@@ -80,7 +80,7 @@ public class RestService {
             ResponseEntity<String> response = restTemplate.exchange(proxyRequest.getUrl(), proxyRequest.getHttpMethod(), entity, String.class);
 
             long timeTaken = System.currentTimeMillis() - startTime;
-            String result = "ok - " + requestId + ", time taken: " + timeTaken + " (ms)";
+            String result = "ok -     " + requestId + ", time taken: " + timeTaken + "   (ms)";
             log.info(result);
             return result;
         }
