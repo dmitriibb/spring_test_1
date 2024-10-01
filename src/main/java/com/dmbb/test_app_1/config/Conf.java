@@ -9,7 +9,7 @@ public class Conf {
 
     public static String HELLO = "hello";
     public static String HELLO_2 = "hello222";
-    
+
     @Bean
     public RestTemplate restTemplate() {
         return new RestTemplate();
