@@ -12,7 +12,7 @@ import java.util.*;
 @RequestMapping("/json-parse")
 public class JsonParseController {
 
-    @PutMapping("/count-different-fields")
+    @PutMapping("/count-different-fieldsssss")
     public Map<String, Integer> countDifferentFields(@RequestBody Map<String, Object> body) {
         Map<String, Set<Object>> res = new HashMap<>();
 
@@ -51,6 +51,7 @@ public class JsonParseController {
             }
             set.add(currentField);
         }
+        String a = "11";
     }
 
 
